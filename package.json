@@ -1,0 +1,16 @@
+{
+  "name": "ts-cli-weather-app",
+  "version": "1.0.0",
+  "description": "CLI app to present weather forecast",
+  "main": "index.ts",
+  "repository": "https://github.com/laionazeredo/ts-cli-weather-app.git",
+  "author": "laionazeredo <laion.azeredo@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1"
+  },
+  "scripts": {
+    "ts-compile": "tsc *.ts"
+  }
+}
