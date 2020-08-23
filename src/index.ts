@@ -18,4 +18,9 @@ Frameworks e Drivers
 -- Conexão com a API OpenWeather
 -- Presenter CLI
 */
+import 'module-alias/register';
+const forecastModule = require( "./weather_api_connector" );
+const forecastData = forecastModule.getForecast( "Porto Alegre" );
+
+console.log( forecastData );
 

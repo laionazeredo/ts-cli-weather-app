@@ -2,5 +2,22 @@
     "extends": "@tsconfig/recommended/tsconfig.json",
     "strict": true,
     "alwaysStrict": true,
-    "watch": true
+    "compileOnSave": true,
+    "compilerOptions": {
+        "inlineSourceMap": true,
+        "outDir": "./dist",
+        "watch": true,
+        "baseUrl": "./src",
+        "paths": {
+            "@src": [
+                "."
+            ]
+        }
+    },
+    "include": [
+        "./src/"
+    ],
+    "exclude": [
+        "./node_modules/"
+    ]
 }
