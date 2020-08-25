@@ -8,23 +8,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const axios = require("axios");
-let forecastCod;
-const forecast = (city) => __awaiter(void 0, void 0, void 0, function* () {
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const axios_1 = __importDefault(require("axios"));
+exports.forecast = (city) => __awaiter(void 0, void 0, void 0, function* () {
     const APICONFIG = require("../config/api_settings.json");
     const apiKey = APICONFIG.apiKey;
     const apiMode = 'json';
     try {
-        let forecast = yield axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&mode${apiMode}&units=metric`);
-        forecastCod = forecast.data.cod;
+        let forecastData = yield axios_1.default.get(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&mode${apiMode}&units=metric`);
+        return forecastData.data;
     }
     catch (err) {
         console.log("it comes an big error: ", err);
     }
 });
-const getForecast = (city) => {
-    forecast(city);
-    return forecastCod;
-};
-module.exports.getForecast = getForecast;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoid2VhdGhlcl9hcGlfY29ubmVjdG9yLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL3dlYXRoZXJfYXBpX2Nvbm5lY3Rvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQ0EsTUFBTSxLQUFLLEdBQUcsT0FBTyxDQUFFLE9BQU8sQ0FBRSxDQUFDO0FBRWpDLElBQUksV0FBbUIsQ0FBQztBQUV4QixNQUFNLFFBQVEsR0FBRyxDQUFRLElBQVksRUFBRyxFQUFFO0lBR3hDLE1BQU0sU0FBUyxHQUFHLE9BQU8sQ0FBRSw2QkFBNkIsQ0FBRSxDQUFDO0lBQzNELE1BQU0sTUFBTSxHQUFHLFNBQVMsQ0FBQyxNQUFNLENBQUM7SUFDaEMsTUFBTSxPQUFPLEdBQUcsTUFBTSxDQUFDO0lBQ3ZCLElBQ0E7UUFFRSxJQUFJLFFBQVEsR0FBRyxNQUFNLEtBQUssQ0FBQyxHQUFHLENBQUUscURBQXFELElBQUksVUFBVSxNQUFNLFFBQVEsT0FBTyxlQUFlLENBQUUsQ0FBQztRQUUxSSxXQUFXLEdBQUcsUUFBUSxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUM7S0FDakM7SUFDRCxPQUFRLEdBQUcsRUFDWDtRQUNFLE9BQU8sQ0FBQyxHQUFHLENBQUUseUJBQXlCLEVBQUUsR0FBRyxDQUFFLENBQUM7S0FDL0M7QUFHSCxDQUFDLENBQUEsQ0FBQztBQUVGLE1BQU0sV0FBVyxHQUFHLENBQUUsSUFBWSxFQUFHLEVBQUU7SUFFckMsUUFBUSxDQUFFLElBQUksQ0FBRSxDQUFDO0lBQ2pCLE9BQU8sV0FBVyxDQUFDO0FBQ3JCLENBQUMsQ0FBQztBQUNGLE1BQU0sQ0FBQyxPQUFPLENBQUMsV0FBVyxHQUFHLFdBQVcsQ0FBQyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoid2VhdGhlcl9hcGlfY29ubmVjdG9yLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL3dlYXRoZXJfYXBpX2Nvbm5lY3Rvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7OztBQUFBLGtEQUEwQjtBQUViLFFBQUEsUUFBUSxHQUFHLENBQVEsSUFBWSxFQUFHLEVBQUU7SUFHL0MsTUFBTSxTQUFTLEdBQUcsT0FBTyxDQUFFLDZCQUE2QixDQUFFLENBQUM7SUFDM0QsTUFBTSxNQUFNLEdBQUcsU0FBUyxDQUFDLE1BQU0sQ0FBQztJQUNoQyxNQUFNLE9BQU8sR0FBRyxNQUFNLENBQUM7SUFDdkIsSUFDQTtRQUVFLElBQUksWUFBWSxHQUFHLE1BQU0sZUFBSyxDQUFDLEdBQUcsQ0FBRSxxREFBcUQsSUFBSSxVQUFVLE1BQU0sUUFBUSxPQUFPLGVBQWUsQ0FBRSxDQUFDO1FBRTlJLE9BQU8sWUFBWSxDQUFDLElBQUksQ0FBQztLQUMxQjtJQUNELE9BQVEsR0FBRyxFQUNYO1FBQ0UsT0FBTyxDQUFDLEdBQUcsQ0FBRSx5QkFBeUIsRUFBRSxHQUFHLENBQUUsQ0FBQztLQUMvQztBQUNILENBQUMsQ0FBQSxDQUFDIn0=

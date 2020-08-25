@@ -19,8 +19,27 @@ Frameworks e Drivers
 -- Presenter CLI
 */
 import 'module-alias/register';
-const forecastModule = require( "./weather_api_connector" );
-const forecastData = forecastModule.getForecast( "Porto Alegre" );
+import { forecast } from "./weather_api_connector";
+import { ForecastInterface } from "./interfaces";
 
-console.log( forecastData );
+
+let forecastData: ForecastInterface;
+
+
+( async function getforecast ( forecastFunction: any )
+{
+  try
+  {
+    let response = await forecastFunction( 'Porto Alegre' );
+    forecastData = response.city;
+    console.log( "city name:", forecastData );
+  } catch ( err )
+  {
+    console.log( "error: ", err );
+  }
+} )( forecast );
+
+
+
+
 
